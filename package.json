@@ -1,0 +1,26 @@
+{
+  "name": "teamprofilegenerator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TWFB29/TeamProfileGenerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TWFB29/TeamProfileGenerator/issues"
+  },
+  "homepage": "https://github.com/TWFB29/TeamProfileGenerator#readme",
+  "dependencies": {
+    "jest": "^27.0.6",
+    "save-dev": "0.0.1-security"
+  }
+}
