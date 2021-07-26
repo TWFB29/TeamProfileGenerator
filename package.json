@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/TWFB29/TeamProfileGenerator#readme",
   "dependencies": {
+    "fs": "0.0.1-security",
     "inquirer": "^8.1.2",
     "jest": "^27.0.6",
     "save-dev": "0.0.1-security"
