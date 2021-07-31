@@ -1,28 +1,26 @@
 {
-  "name": "teamprofilegenerator",
+  "name": "teamsummarygenerator",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
+  "dependencies": {
+    "jest": "^27.0.6"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TWFB29/TeamProfileGenerator.git"
+    "url": "git+https://github.com/meck512/TeamSummaryGenerator.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TWFB29/TeamProfileGenerator/issues"
+    "url": "https://github.com/meck512/TeamSummaryGenerator/issues"
   },
-  "homepage": "https://github.com/TWFB29/TeamProfileGenerator#readme",
-  "dependencies": {
-    "fs": "0.0.1-security",
-    "inquirer": "^8.1.2",
-    "jest": "^27.0.6",
-    "save-dev": "0.0.1-security"
-  }
+  "homepage": "https://github.com/meck512/TeamSummaryGenerator#readme"
 }

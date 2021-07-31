@@ -1,1 +1,1 @@
-# TeamProfileGenerator
+# TeamSummaryGenerator
