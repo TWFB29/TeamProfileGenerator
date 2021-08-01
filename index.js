@@ -6,10 +6,18 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const employeeArray = [];
-const managerArray = [];
-const engineerArray = [];
-const internArray = [];
+const empCard = require('./dist/employeeGenerate');
+const manCard = require('./dist/managerGenerate');
+const engCard = require('./dist/engineerGenerate');
+const intCard = require('./dist/internGenerate');
+
+const mainHTML = require('./dist/mainHTML')
+
+const path = require('path');
+const employeeCard = require('./dist/employeeGenerate');
+const htmlGenerate = path.resolve(__dirname, 'htmlGenerate', 'TeamProfile.html');
+
+const mainArray = [];
 
 const promptUser = () => {
     inquirer.prompt([
@@ -64,18 +72,19 @@ const employeePrompt = () => {
             type: "input"
         }
     ]).then(data => {
-        const employeeProfile = new Employee(
+        const employeeInfo = new Employee(
             data.name,
             data.id,
             data.email
         );
 
-        employeeArray.push(employeeProfile);
-        const n = 
+        
+        const n = empCard(employeeInfo)
+        mainArray.push(n);
         promptUser();
-    });
+    })
     
-}
+};
 
 const managerPrompt = () => {
     inquirer.prompt([
@@ -101,14 +110,15 @@ const managerPrompt = () => {
         }
 
     ]).then(data => {
-        const managerProfile = new Manager(
+        const managerInfo = new Manager(
             data.name,
             data.id,
             data.email,
             data.officeNumber
         );
 
-        managerArray.push(managerProfile);
+        const m = manCard(managerInfo)
+        mainArray.push(m);
         promptUser();
 
     });
@@ -137,14 +147,15 @@ const engineerPrompt = () => {
             message: "Enter engineer's GitHub username:",
         }
     ]).then(data => {
-        const engineerProfile = new Engineer(
+        const engineerInfo = new Engineer(
             data.name,
             data.id,
             data.email,
-            data.officeNumber
+            data.github
         );
 
-        engineerArray.push(engineerProfile);
+        const en = engCard(engineerInfo)
+        mainArray.push(en);
         promptUser();
     });
 };
@@ -173,20 +184,22 @@ const internPrompt = () => {
         }
 
     ]).then(data => {
-        const internProfile = new Intern(
+        const internInfo = new Intern(
             data.name,
             data.id,
             data.email,
-            data.officeNumber
+            data.school
         );
 
-        internArray.push(internProfile);
+        const i = intCard(internInfo)
+        mainArray.push(i);
         promptUser();
     })
 };
 
-const donePrompt = () => {
-fs.writeFileSync("testing.html", )
+function donePrompt() {
+    const allCards = mainArray.join('')
+fs.writeFileSync(htmlGenerate, mainHTML(allCards), 'utf-8');
 };
 
 function init() {
@@ -195,136 +208,4 @@ function init() {
 
 init();
 
-module.exports = (internArray);
-module.exports = (engineerArray);
-module.exports = (managerArray);
-module.exports = (employeeArray);
 
-
-
-
-const arrEmp = {}
-
-const generateHTML = (employeeCard) => {
-
-    return `
-
-    <!DOCTYPE html>
-
-    <html lang="en">
-
-        <head>
-
-            <title>My Team</title>
-
-            <!-- Required meta tags -->
-
-            <meta charset="utf-8" />
-
-            <meta
-
-                name="viewport"
-
-                content="width=device-width, initial-scale=1, shrink-to-fit=no"
-
-            />
-
-    
-
-            <link
-
-                rel="stylesheet"
-
-                href=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
-
-                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-
-                crossorigin="anonymous"
-
-            />
-
-       
-
-        </head>
-
-        <body>
-
-            <div class="jumbotron jumbotron-fluid bg-dark">
-
-                <div class="container">
-
-                    <div class="row">
-
-                        <div class="col">
-
-                            <h1 class="display-4 text-left text-danger">My Team</h1>
-
-                            <p class="lead"></p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="container">
-
-            <div class="row">
-
-                <div class="col-12 d-flex justify-content-around mt-4">
-
-                    ${employeeCard}
-
-                </div>
-
-            </div>
-
-        </div>
-
-    
-
-            
-
-            <script
-
-                src=https://code.jquery.com/jquery-3.3.1.slim.min.js
-
-                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-
-                crossorigin="anonymous"
-
-            ></script>
-
-            <script
-
-                src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js
-
-                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-
-                crossorigin="anonymous"
-
-            ></script>
-
-            <script
-
-                src=https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
-
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-
-                crossorigin="anonymous"
-
-            ></script>
-
-        </body>
-
-    </html>
-
-    `;
-
-};
-
- 
-
-module.exports = generateHTML;
