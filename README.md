@@ -5,4 +5,4 @@ This application will generate an html file using bootstrap cards with the infor
   ### Email address
   [e-mail address](twfb29@yahoo.com)
   ### Walk through
-  [Walk through video](https://drive.google.com/file/d/1QhArDB6oFCEoL1FVLfPBk5OK_1ZFai_Z/view)
+  [Walk through video](https://drive.google.com/file/d/1jnb1zjHOzKtoXazjiWM9goD3yTv7QmZR/view)
