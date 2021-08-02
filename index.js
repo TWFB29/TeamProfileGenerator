@@ -203,7 +203,7 @@ fs.writeFileSync(htmlGenerate, mainHTML(allCards), 'utf-8');
 };
 
 function init() {
-    promptUser()
+    managerPrompt()
 };
 
 init();
